@@ -14,7 +14,7 @@ class Home extends React.Component {
     };
   }
   componentDidMount = () => {
-    axios.get("http://localhost:8080/fruit").then((data) => {
+    axios.get(`${process.env.REACT_APP_HEROCO}/fruit`).then((data) => {
       console.log(data.data);
       this.setState({
         fruitArray: data.data,
@@ -30,7 +30,7 @@ const reqbody={
   image:image,
   email:this.state.email
 };
-axios.post("http://localhost:8080/fruit",reqbody).then((Fruit)=>{console.log(Fruit);});
+axios.post(`${process.env.REACT_APP_HEROCO}/fruit`,reqbody).then((Fruit)=>{console.log(Fruit);});
   }
 
   render() {

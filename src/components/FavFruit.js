@@ -19,7 +19,7 @@ class FavFruit extends React.Component {
   }
   componentDidMount = () => {
     axios
-      .get(`http://localhost:8080/fruit/${this.state.email}`)
+      .get(`${process.env.REACT_APP_HEROCO}/fruit/${this.state.email}`)
       .then((frute) => {
         console.log(frute, "ddddddddd");
         this.setState({
@@ -30,7 +30,7 @@ class FavFruit extends React.Component {
 
   removeOne = (id) => {
 console.log(id);
-axios.delete(`http://localhost:8080/fruit/${id}`).then((deletedItem)=>{
+axios.delete(`${process.env.REACT_APP_HEROCO}/fruit/${id}`).then((deletedItem)=>{
 console.log(deletedItem);
 // if(deletedItem.data.deletedCount===1){
 //   const result = deletedItem.filter(dataa => dataa._id !== id);
@@ -68,7 +68,7 @@ this.setState({
       email:this.state.email
     };
     console.log(reqbody);
-    axios.put(`http://localhost:8080/fruit/${this.state.id}`,reqbody).then((updateArray)=>{
+    axios.put(`${process.env.REACT_APP_HEROCO}/fruit/${this.state.id}`,reqbody).then((updateArray)=>{
       console.log(updateArray);
     });
   }
